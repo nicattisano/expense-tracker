@@ -78,7 +78,9 @@ class ManageSearchMonth extends Component {
 
 const AddExpense = React.createClass({
   getInitialState() {
-    return { showModal: false };
+    return { 
+        newCategory: 'food',
+        showModal: false };
   },
 
   render() {
@@ -173,7 +175,7 @@ const AddExpense = React.createClass({
                     >
                         <option value="food">Food</option>
                         <option value="entertainment">Entertainment</option>
-                        <option value="entertainment">Auto</option>
+                        <option value="auto">Auto</option>
                     </FormControl>
                 </FormGroup>
         
@@ -341,12 +343,12 @@ class ManageTable extends Component {
                         className="noStyle"
                         value={expense.category}
                     >
-                    <option value="Food">Food</option>
-                    <option value="Entertainment">Entertainment</option>
-                    <option value="Shopping">Parking</option>
-                    <option value="Auto">Auto</option>
-                    <option value="Savings">Savings</option>
-                    <option value="Misc">Miscellaneous</option>
+                    <option value="food">Food</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="shopping">Parking</option>
+                    <option value="auto">Auto</option>
+                    <option value="savings">Savings</option>
+                    <option value="misc">Miscellaneous</option>
                     </FormControl>
 
                     </td>
@@ -397,7 +399,7 @@ class App extends Component {
         
                     <Row>
                         <ManageSearchMonth />
-                        <AddExpense />
+                        <AddExpense expenses={this.state.expenses}/>
                     </Row>
         
                     <ManageTable expenses={this.state.expenses}/>
