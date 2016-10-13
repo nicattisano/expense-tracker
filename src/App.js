@@ -78,7 +78,10 @@ class ManageSearchMonth extends Component {
 
 const AddExpense = React.createClass({
   getInitialState() {
-    return { showModal: false };
+    return { 
+        newCategory: 'entertainment',
+        showModal: false
+    };
   },
 
   render() {
@@ -168,12 +171,12 @@ const AddExpense = React.createClass({
                     </ControlLabel>
                     <FormControl
                         componentClass="select"
-                        value={this.state.newCategory}
+                        value={ this.state.newCategory }
                         onChange={this.updateCategory}
                     >
                         <option value="food">Food</option>
                         <option value="entertainment">Entertainment</option>
-                        <option value="entertainment">Auto</option>
+                        <option value="auto">Auto</option>
                     </FormControl>
                 </FormGroup>
         
@@ -245,7 +248,7 @@ const AddExpense = React.createClass({
     console.log(newExpense);
     
     this.firebaseRef.push(newExpense);
-    this.setState({newDate: '', newStore: '', newPrice: '', newDescription:''});
+    this.setState({newDate: '', newStore: '', newPrice: '', newDescription:'', newCategory: 'food'});
       this.close();
   }
     
@@ -268,10 +271,11 @@ class ManageTable extends Component {
             console.log(dataSnapshot.key, dataSnapshot.val());
             var expenses = this.props.expenses;
        
+            console.log(expenses);
             var id = dataSnapshot.key;
             expenses[id] = dataSnapshot.val();
        
-            this.setState({ expenses:expenses });
+//            this.setState({ expenses:expenses });
         });
     
         this.firebaseRef.on('child_removed', (dataSnapshot) => {
