@@ -1,0 +1,226 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700';
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    background: #2a2a36;
+    color: #fefeff;
+}
+
+.m-t-30{margin-top: 30px}
+.m-b-30{margin-bottom: 30px;}
+.m-b-10{margin-bottom: 10px;}
+
+.navbar-default {
+    background-color: #3b3b47 !important;
+    border-color: #3b3b47;
+    background-image:none;
+}
+
+.navbar-default .navbar-brand {
+    color: #fefeff;
+}
+.navbar-default .navbar-brand:hover {
+    color: #cacaca;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #fefeff;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color: #cacaca;
+}
+
+.btn-default {
+    color: #fefeff;
+    background-color: #3b3b47;
+    border-color: #3b3b47;
+    transition: 0.2s all;
+    background-image: none !important;
+}
+
+.btn-default:hover, .btn-default:active, .btn-default:focus {
+    color: #fefeff;
+    background-color: #5d5d6d !important;
+    border-color: #5d5d6d;
+    outline: none;
+}
+
+.recentExpensesTable {
+    width: 100%;
+}
+
+.recentExpensesTable thead {
+    background: #3b3b47;
+    font-size: 13pt;
+}
+
+.recentExpensesTable a i {
+    color: #ff6b42;
+    font-size: 14pt;
+}
+
+.noStyle{
+    background-color: transparent;
+    border: 0px solid;
+    height: 20px;
+    width: auto;
+    color: #fefeff;
+    box-shadow: none;
+}
+.noStyle:focus {
+    outline: none !important;
+}
+.form-control:focus {
+    box-shadow:none;
+    border: none;
+}
+select.noStyle{
+    width: 140px;
+}
+
+#ui-datepicker-div {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.ui-datepicker-month, .ui-datepicker-year {
+    background-color: transparent;
+    border: 0px solid;
+    height: 20px;
+    width: auto;
+    color: #2a2a36;
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.ui-datepicker-month:focus, .ui-datepicker-year:focus {
+    outline: none;
+}
+
+.ui-datepicker-close, .ui-datepicker-current {
+    background: #2a2a36 !important;
+    color: #fefeff !important; 
+}
+
+label#searchCharts {
+    font-size: 11pt;
+    font-weight: 400;
+}
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+    border: 1px solid #3b3b47;
+    background: #3b3b47;
+    color: #fefeff;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border: 1px solid #3b3b47;
+    background: #3b3b47;
+    font-weight: normal;
+    color: #fefeff;
+}
+
+.btnAdd {
+    background: #f23d5c;
+    border-color: #f23d5c;
+    float: right;
+    transition: 0.2s all;
+}
+
+.btnAdd:hover, .btnAdd:active, .btnAdd:focus {
+    background: #9e283c !important;
+    border-color: #9e283c !important;
+}
+
+.modal {
+    color: #2a2a36;
+}
+.createAccountLink {
+    color: #fefeff;
+    font-weight: 400;
+}
+.createAccountLink:hover {
+    color: #fff;
+}
+input#addDate {
+    width: 100%;
+    height: 35px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-shadow: none;
+    border: 1px solid #cccccc;
+    padding-left: 9px;
+}
+.modal select {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.main {
+    background: url(main.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.homeInfo {
+    text-align: center;
+}
+.homeInfo h1 {
+    font-weight: 400;
+    margin-top: 60px;
+}
+
+.btnHome {
+    background: #10181b;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.btnSmallPicker {
+    width: 170px;
+    margin-left: 10px;
+}
+
+.monthYearPicker {
+    width: 160px;
+    margin-left: 10px;
+}
+
+.deleteBtn {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.deleteBtn i {
+    font-size: 18px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
