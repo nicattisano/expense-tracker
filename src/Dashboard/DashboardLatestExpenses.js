@@ -1,0 +1,78 @@
+import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
+import { Row, Col, Button, Form, FormGroup, FormControl, ControlLabel, Table, Modal, OverlayTrigger } from 'react-bootstrap';
+import firebase from 'firebase';
+import { Link } from 'react-router'
+//import link from 'react-router';
+
+class DashboardLatestExpenses extends Component {
+
+    constructor(props) {
+        super(props);
+         this.state = {
+            expenses: {
+    //            id1: {
+    //                date: 'October 3',
+    //                store: 'Tims',
+    //                price: '$5',
+    //                description: 'blahhh',
+    //                category: 'Entertainment'
+    //            }
+            }
+      }
+    }
+    
+    render() {
+        return(
+
+            <Col md={6}>
+                <h3>Recent Expenses</h3>
+                <Table className="table recentExpensesTable">
+                    <thead>
+                        <tr>
+                            <td>Store</td>
+                            <td>Price</td>
+                            <td>Category</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+            { Object.keys(this.props.expenses).map((id) => {
+            var expense = this.props.expenses[id];
+               return <tr key={ id }>
+                            <td>{ expense.store }</td>
+                            <td>{ expense.price }</td>
+                            <td>{ expense.category }</td>
+                        </tr>
+            })}
+                    </tbody>
+
+                </Table>
+            </Col>
+            
+            
+        )
+    }
+    
+    
+ componentDidMount() {
+     var component = this;
+     
+        this.firebaseRef = firebase.database().ref('expenses');
+        this.firebaseRef.on('child_added', (dataSnapshot) => {
+            console.log(dataSnapshot.key, dataSnapshot.val());
+            var expenses = this.props.expenses;
+       
+            var id = dataSnapshot.key;
+            expenses[id] = dataSnapshot.val();
+       
+            this.setState({ expenses:expenses });
+        });
+    
+ }
+    
+    
+}
+
+export default DashboardLatestExpenses;
