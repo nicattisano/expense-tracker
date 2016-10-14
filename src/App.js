@@ -13,6 +13,11 @@ import ManageSearchMonth from './Manager/ManageSearchMonth';
 import AddExpense from './Manager/AddExpense';
 import ManageTable from './Manager/ManageTable';
 
+import DashboardHeading from './Dashboard/DashboardHeading';
+import DashboardSearchMonth from './Dashboard/DashboardSearchMonth';
+import DashboardPieChart from './Dashboard/DashboardPieChart';
+import DashboardLatestExpenses from './Dashboard/DashboardLatestExpenses';
+
 //import logo from './logo.svg';
 
 var config = {
@@ -27,7 +32,7 @@ firebase.initializeApp(config);
 
 class Manager extends Component {
     
-    constructor(props) { 
+    constructor(props) {
         super(props);
          this.state = {
             expenses: {
@@ -54,77 +59,35 @@ class Manager extends Component {
     }
 }
 
+
 class Dashboard extends Component {
     
-    constructor(props) { 
+    constructor(props) {
         super(props);
+         this.state = {
+            expenses: {
+    //            id1: {
+    //                date: 'October 3',
+    //                store: 'Tims',
+    //                price: '$5',
+    //                description: 'blahhh',
+    //                category: 'Entertainment'
+    //            }
+            }
+      }
     }
+    
     render() {
         return(
-
             
         <div className="dashboard">
-                <Row>
-                    <Col md={12}>
-                        <h1 className="m-b-30">Dashboard</h1>
-                    </Col>
-                </Row>
-                <Row>
-                <Col md={6}>
-                    <ControlLabel 
-                        id="searchCharts">
-                        Search :
-                    </ControlLabel>
-        <FormControl 
-            name="myDate" 
-            className="monthYearPicker btn btn-default" 
-            value="October 2016"
-        />
-
-
-      
-
-
-                    </Col>
-
-                    <Col md={6}>
-                        <h3>Recent Expenses</h3>
-                        <Table className="table recentExpensesTable">
-                            <thead>
-                                <tr>
-                                    <td>Store</td>
-                                    <td>Price</td>
-                                    <td>Category</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Tim Hortons</td>
-                                    <td>$4.05</td>
-                                    <td>Food</td>
-                                </tr>                        
-                                <tr>
-                                    <td>The Bay</td>
-                                    <td>$80.65</td>
-                                    <td>Shopping</td>
-                                </tr>                        
-                                <tr>
-                                    <td>Condo</td>
-                                    <td>$1500</td>
-                                    <td>Savings</td>
-                                </tr>                        
-                                <tr>
-                                    <td>Store</td>
-                                    <td>Price</td>
-                                    <td>Category</td>
-                                </tr>
-                            </tbody>
-                        
-                        </Table>
-                    </Col>
-                </Row>
+            <DashboardHeading />
+            <Row>
+                <DashboardSearchMonth />
+            <DashboardPieChart />
+               <DashboardLatestExpenses expenses={this.state.expenses}/>
+            </Row>
         </div>   
-            
             
         )
     }

@@ -9,12 +9,12 @@ import link from 'react-router';
 
 import Navigation from './Navigation';
 
-import ManageHeading from './Manager/ManageHeading';
-import ManageSearchMonth from './Manager/ManageSearchMonth';
-import AddExpense from './Manager/AddExpense';
-import ManageTable from './Manager/ManageTable';
+import DashboardHeading from './Dashboard/DashboardHeading';
+import DashboardSearchMonth from './Dashboard/DashboardSearchMonth';
+import DashboardPieChart from './Dashboard/DashboardPieChart';
+import DashboardLatestExpenses from './Dashboard/DashboardLatestExpenses';
 
-class Manager extends Component {
+class Dashboard extends Component {
     
     constructor(props) {
         super(props);
@@ -28,20 +28,27 @@ class Manager extends Component {
     //                category: 'Entertainment'
     //            }
             }
+    }
+  }
+             
       }
     }
+    
     render() {
-        return <div>
-        <ManageHeading />
+        return(
+            
+        <div className="dashboard">
+            <DashboardHeading />
             <Row>
-                <ManageSearchMonth />
-                <AddExpense expenses={this.state.expenses}/>
+            <DashboardSearchMonth />
+            <DashboardPieChart options={this.state.options}, data={this.state.data} />
+               <DashboardLatestExpenses expenses={this.state.expenses}/>
             </Row>
-
-            <ManageTable expenses={this.state.expenses}/>
-            </div>
+        </div>   
+            
+        )
     }
 }
 
-export default Manager;
-export { Navigation, ManageHeading, ManageSearchMonth, AddExpense, ManageTable };
+export default Dashboard;
+export { Navigation, DashboardHeading, DashboardSearchMonth, DashboardPieChart, DashboardLatestExpenses };

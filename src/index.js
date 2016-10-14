@@ -13,7 +13,7 @@ import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router'
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-        <IndexRoute component={Manager} />
+        <IndexRoute component={Dashboard} />
         <Route path="dashboard" component={Dashboard}/>
         <Route path="manage" component={Manager}/>
     </Route>
