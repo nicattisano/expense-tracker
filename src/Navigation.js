@@ -16,7 +16,7 @@ class Navigation extends Component {
            </Navbar.Header>
            <Nav className="navbar-right">
         
-             <NavItem><Link to="/about" className="aLink">Dashboard</Link></NavItem>
+             <NavItem><Link to="/dashboard" className="aLink">Dashboard</Link></NavItem>
              <NavItem><Link to="/manage" className="aLink">Manage</Link></NavItem>
              <NavItem eventKey={4} href="#">Sign In</NavItem>
                 <NavDropdown eventKey={5} title="My Account" id="basic-nav-dropdown">

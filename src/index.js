@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App, { Manager, About } from './App';
+import App, { Manager, Dashboard } from './App';
 import './index.css';
 
 import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router'
@@ -14,8 +14,8 @@ ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
         <IndexRoute component={Manager} />
+        <Route path="dashboard" component={Dashboard}/>
         <Route path="manage" component={Manager}/>
-        <Route path="about" component={About}/>
     </Route>
   </Router>
 ), document.getElementById('root'))
