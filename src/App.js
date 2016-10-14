@@ -4,6 +4,11 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Grid, Row, Col, Button, Form, FormGroup, FormControl, ControlLabel, Table, Modal, OverlayTrigger } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 import firebase from 'firebase';
+import { Link } from 'react-router'
+import link from 'react-router';
+
+import Navigation from './Navigation';
+
 //import logo from './logo.svg';
 
 var config = {
@@ -14,31 +19,6 @@ storageBucket: "",
 messagingSenderId: "826824591907"
 };
 firebase.initializeApp(config);
-
-
-class Navigation extends Component {
-  render() {
-    return (
-        <Navbar>
-           <Navbar.Header>
-             <Navbar.Brand>
-               <a href="#">React-Bootstrap</a>
-             </Navbar.Brand>
-           </Navbar.Header>
-           <Nav className="navbar-right">
-             <NavItem eventKey={1} href="#">Home</NavItem>
-             <NavItem eventKey={2} href="#">Dashboard</NavItem>
-             <NavItem eventKey={3} href="#">Manage</NavItem>
-             <NavItem eventKey={4} href="#">Sign In</NavItem>
-                <NavDropdown eventKey={5} title="My Account" id="basic-nav-dropdown">
-                   <MenuItem eventKey={5.1}>Settings</MenuItem>
-                   <MenuItem eventKey={5.2}>Logout</MenuItem>
-                </NavDropdown>
-           </Nav>
-         </Navbar>
-    );
-  }
-}
 
 
 class ManageHeading extends Component {
@@ -370,23 +350,51 @@ class ManageTable extends Component {
   }
 }
 
+class Manager extends Component {
+    
+    constructor(props) { 
+        super(props);
+         this.state = {
+            expenses: {
+    //            id1: {
+    //                date: 'October 3',
+    //                store: 'Tims',
+    //                price: '$5',
+    //                description: 'blahhh',
+    //                category: 'Entertainment'
+    //            }
+            }
+      }
+    }
+    render() {
+        return <div>
+        <ManageHeading />
+        
+                    <Row>
+                        <ManageSearchMonth />
+                        <AddExpense expenses={this.state.expenses}/>
+                    </Row>
+        
+                    <ManageTable expenses={this.state.expenses}/>
+                    </div>
+    }
+}
+
+class About extends Component {
+    
+    constructor(props) { 
+        super(props);
+    }
+    render() {
+        return <h1>About</h1>;
+    }
+}
 
 
 class App extends Component {
     
  constructor(props) {
       super(props);
-      this.state = {
-        expenses: {
-//            id1: {
-//                date: 'October 3',
-//                store: 'Tims',
-//                price: '$5',
-//                description: 'blahhh',
-//                category: 'Entertainment'
-//            }
-        }
-      }
   }
     
   render() {
@@ -395,14 +403,7 @@ class App extends Component {
             <Navigation />
             <div className="dashboard">
                 <div className="container">
-                    <ManageHeading />
-        
-                    <Row>
-                        <ManageSearchMonth />
-                        <AddExpense expenses={this.state.expenses}/>
-                    </Row>
-        
-                    <ManageTable expenses={this.state.expenses}/>
+                    {this.props.children}               
                 </div>
             </div>
         </div>
@@ -411,4 +412,6 @@ class App extends Component {
 }
 
 export default App;
+export { Manager, About };
+
 

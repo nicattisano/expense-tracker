@@ -220,6 +220,15 @@ input#addDate {
     font-size: 18px;
 }
 
+a.aLink {
+    color: #fefeff;
+    transition: 0.2s all;
+}
+a.aLink:hover, a.aLink:active {
+    color: #afafaf;
+    text-decoration: none;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

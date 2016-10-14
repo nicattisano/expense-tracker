@@ -1,25 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App, { Manager, About } from './App';
 import './index.css';
 
+import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router'
+//import router from 'react-router';
+//import route from 'react-router';
+//import link from 'react-router';
+//import hashHistory from 'react-router';
 
-//import { Router, Route, Link } from 'react-router'
-//import Router from 'react-router';
-//import Route from 'react-router';
-//import Link from 'react-router';
-//import browserHistory from 'react-router';
-//
-//ReactDOM.render((
-//  <Router history={router.browserHistory}>
-//    <Route path="/" component={App}>
-//      <Route path="page1" component={Page1}/>
-//      <Route path="page2" component={Page2}/>
-//    </Route>
-//  </Router>
-//), document.getElementById('placeholder'))
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+ReactDOM.render((
+  <Router history={browserHistory}>
+    <Route path="/" component={App}>
+        <IndexRoute component={Manager} />
+        <Route path="manage" component={Manager}/>
+        <Route path="about" component={About}/>
+    </Route>
+  </Router>
+), document.getElementById('root'))
+
+//ReactDOM.render(
+//  <App />,
+//  document.getElementById('root')
+//);
