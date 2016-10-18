@@ -14,20 +14,29 @@ class DashboardPieChart extends React.Component {
   constructor(props){
     super(props);
     this.state={
+    expenses: {
+        
+    },
       options:{
-          title: 'Age vs. Weight comparison',
-          hAxis: {title: 'Age', minValue: 0, maxValue: 15},
-          vAxis: {title: 'Weight', minValue: 0, maxValue: 15},
-          legend: 'none'
+          title: 'October 2016 Breakdown',
+            pieHole: 0.4,
+            backgroundColor: '#2a2a36',
+            fontName: 'Montserrat',
+            'legend': { 'textStyle': { 'color': '#fefeff' } },
+            'titleTextStyle': {color: '#fefeff', fontName: null, fontSize: 18},
+            chartArea:{left:10},
+            colors:['#ff6b42','#7d4bff', '#fdcb4e', '#f23d5c', '#00affe', '#d500fa', '#287af8', '#4bb670']
       },
       data:[
-            ['Age', 'Weight'],
-            [ 8,      12],
-            [ 4,      5.5],
-            [ 11,     14],
-            [ 4,      5],
-            [ 3,      3.5],
-            [ 6.5,    7]
+            ['Categoy', 'Amount'],
+            [ 'Food',      12],
+            [ 'Entertainment',      5.5],
+            [ 'Auto',     14],
+            [ 'Savings',      5],
+            [ 'Condo',      5],
+            [ 'Wedding',      5],
+            [ 'Gifts',      5],
+            [ 'Misc',      3.5]
       ]
     };
   }
@@ -35,13 +44,11 @@ class DashboardPieChart extends React.Component {
   render() {
       return (
           <Col md={6}>
-        <Chart chartType="ScatterChart" data={this.state.data} options={this.state.options} graph_id="ScatterChart"  width={"500px"} height={"400px"}  legend_toggle={true} />
+        <Chart chartType="PieChart" data={this.state.data} options={this.state.options} graph_id="ScatterChart"  width={"700px"} height={"500px"}  legend_toggle={true} />
           </Col>
       );
   }
 };
-
-
 
 
 
