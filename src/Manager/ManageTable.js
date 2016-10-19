@@ -79,7 +79,7 @@ class ManageTable extends Component {
                     <FormControl 
                         type="text" 
                         className="noStyle priceVal" 
-                        value={ expense.price }
+                        value={ '$' + expense.price }
                     />
                     </td>
                     <td>

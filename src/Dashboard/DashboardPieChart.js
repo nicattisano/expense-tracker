@@ -11,8 +11,6 @@ import firebase from 'firebase';
 
 
 class DashboardPieChart extends React.Component {
-          
-    
     
   constructor(props){
     super(props);
@@ -64,9 +62,9 @@ class DashboardPieChart extends React.Component {
     
     
 categorize(expenses) {
-    
+
     console.log(expenses);
-    var cats=['food', 'entertainment', 'auto'];
+    var cats=['food', 'entertainment', 'auto', 'savings', 'condo', 'wedding', 'gifts', 'misc'];
     
     var chartData = [['Category', 'Amount']]
     
@@ -80,8 +78,9 @@ categorize(expenses) {
             }
         }
         
+        
 //        categories[categoryName] = totalCost;
-        chartData.push([categoryName, totalCost])
+        chartData.push([categoryName.charAt(0).toUpperCase() + categoryName.substr(1).toLowerCase(), totalCost])
     }
     
     console.log(chartData);
