@@ -206,7 +206,7 @@ input#addDate {
 }
 
 .monthYearPicker {
-    width: 160px;
+    width: 120px;
     margin-left: 10px;
 }
 
@@ -228,6 +228,26 @@ a.aLink:hover, a.aLink:active {
     color: #afafaf;
     text-decoration: none;
 }
+
+#searchChartsEnd {
+    margin-left: 12px;
+}
+
+
+.btnSearchFilter {
+    background: #f23d5c;
+    border-color: #f23d5c;
+    transition: 0.2s all;
+    width: 80px;
+    margin-left: 12px;
+}
+
+.btnSearchFilter:hover, .btnAdd:active, .btnAdd:focus {
+    background: #9e283c !important;
+    border-color: #9e283c !important;
+}
+
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

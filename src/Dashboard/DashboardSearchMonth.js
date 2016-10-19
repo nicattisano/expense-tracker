@@ -4,22 +4,77 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import { Col, ControlLabel, FormControl } from 'react-bootstrap';
 import { Link } from 'react-router'
 //import link from 'react-router';
+var DatePicker = require('react-datepicker');
+var moment = require('moment');
+require('react-datepicker/dist/react-datepicker.css');
 
 class DashboardSearchMonth extends Component {
+ 
+    
+    constructor(props) {
+        super(props);
+         this.state = {
+            startDate: moment(),
+            endDate: moment(),
+            maxDate: moment(),
+            dateFormat: 'YYYY/MM/DD'
+    }
+  }
+
+  handleChangeStart(date) {
+      console.log(date);
+    this.setState({
+      startDate: date,
+    });
+  }  
+    
+    handleChangeEnd(date) {
+      console.log(date);
+    this.setState({
+      endDate: date
+    });
+  }
+ 
     
     render() {
         return(
 
                 <Col md={12} className="m-b-20">
                     <ControlLabel 
-                        id="searchCharts">
-                        Search :
+                        id="searchChartsStart">
+                        Start Date :
                     </ControlLabel>
-        <FormControl 
-            name="myDate" 
-            className="monthYearPicker btn btn-default" 
-            value="October 2016"
-        />
+
+
+            
+<DatePicker
+    className = "monthYearPicker btn btn-default"    
+    selected={this.state.startDate}
+    selectsStart    startDate={this.state.startDate}
+    endDate={this.state.endDate}
+    onChange={this.handleChangeStart.bind(this)}  />
+        
+        
+                    <ControlLabel 
+                        id="searchChartsEnd">
+                        End Date :
+                    </ControlLabel>
+        
+        
+<DatePicker
+    className = "monthYearPicker btn btn-default"
+    selected={this.state.endDate}
+    selectsEnd    startDate={this.state.startDate}
+    endDate={this.state.endDate}
+    onChange={this.handleChangeEnd.bind(this)}  />
+    
+    
+    <FormControl 
+        type="submit"
+        className="btn btn-default btnSearchFilter"
+        value="Go"
+    />
+            
         </Col>
             
         )

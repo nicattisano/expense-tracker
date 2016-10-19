@@ -42,7 +42,7 @@ class DashboardLatestExpenses extends Component {
             var expense = this.props.expenses[id];
                return <tr key={ id }>
                             <td>{ expense.store.charAt(0).toUpperCase() + expense.store.substr(1).toLowerCase() }</td>
-                            <td>{ expense.price }</td>
+                            <td>{ '$' + expense.price }</td>
                             <td>{ expense.category.charAt(0).toUpperCase() + expense.category.substr(1).toLowerCase() }</td>
                         </tr>
             })}
