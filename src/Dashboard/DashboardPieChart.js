@@ -5,17 +5,26 @@ import { Col, ControlLabel, FormControl } from 'react-bootstrap';
 import { Link } from 'react-router'
 //import link from 'react-router';
 import {Chart} from 'react-google-charts';
+import firebase from 'firebase';
 
 
 
 
 class DashboardPieChart extends React.Component {
+          
+    
     
   constructor(props){
     super(props);
     this.state={
     expenses: {
-        
+    //            id1: {
+    //                date: 'October 3',
+    //                store: 'Tims',
+    //                price: '$5',
+    //                description: 'blahhh',
+    //                category: 'Entertainment'
+    //            }
     },
       options:{
           title: 'October 2016 Breakdown',
@@ -28,7 +37,7 @@ class DashboardPieChart extends React.Component {
             colors:['#ff6b42','#7d4bff', '#fdcb4e', '#f23d5c', '#00affe', '#d500fa', '#287af8', '#4bb670']
       },
       data:[
-            ['Categoy', 'Amount'],
+            ['Category', 'Amount'],
             [ 'Food',      12],
             [ 'Entertainment',      5.5],
             [ 'Auto',     14],
@@ -43,11 +52,61 @@ class DashboardPieChart extends React.Component {
     
   render() {
       return (
+          
+          <div>
           <Col md={6}>
-        <Chart chartType="PieChart" data={this.state.data} options={this.state.options} graph_id="ScatterChart"  width={"700px"} height={"500px"}  legend_toggle={true} />
+        <Chart chartType="PieChart" data={this.categorize(this.state.expenses)} options={this.state.options} graph_id="PieChart"  width={"700px"} height={"500px"}  legend_toggle={true} />
           </Col>
+    </div>
+    
       );
   }
+    
+    
+categorize(expenses) {
+    
+    console.log(expenses);
+    var cats=['food', 'entertainment', 'auto'];
+    
+    var chartData = [['Category', 'Amount']]
+    
+    for (var i=0; i < cats.length; i++ ) {
+        var categoryName = cats[i];
+        var totalCost = 0;
+        
+        for (var key in expenses) {
+            if (expenses[key].category === categoryName) {
+                totalCost += parseInt(expenses[key].price);
+            }
+        }
+        
+//        categories[categoryName] = totalCost;
+        chartData.push([categoryName, totalCost])
+    }
+    
+    console.log(chartData);
+    return chartData;
+}
+    
+ componentDidMount() {
+     var component = this;
+     
+        this.firebaseRef = firebase.database().ref('expenses');
+        this.firebaseRef.on('child_added', (dataSnapshot) => {
+//            console.log(dataSnapshot.key, dataSnapshot.val());
+            var expenses = this.state.expenses;
+//       console.log('b4 ' + expenses);
+            var id = dataSnapshot.key;
+            expenses[id] = dataSnapshot.val();
+       
+//            console.log( 'after ' + expenses);
+            
+            this.setState({ expenses:expenses });
+        });
+    
+ }
+    
+    
 };
 
 

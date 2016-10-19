@@ -61,7 +61,7 @@ class DashboardLatestExpenses extends Component {
      
         this.firebaseRef = firebase.database().ref('expenses');
         this.firebaseRef.on('child_added', (dataSnapshot) => {
-            console.log(dataSnapshot.key, dataSnapshot.val());
+//            console.log(dataSnapshot.key, dataSnapshot.val());
             var expenses = this.props.expenses;
        
             var id = dataSnapshot.key;
