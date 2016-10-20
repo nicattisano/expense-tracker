@@ -22,14 +22,16 @@ class DashboardSearchMonth extends Component {
   }
 
   handleChangeStart(date) {
-      console.log(date);
+      
+var date = new Date();
+var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+      
     this.setState({
-      startDate: date,
-    });
+      startDate: date
+    }); 
   }  
     
     handleChangeEnd(date) {
-      console.log(date);
     this.setState({
       endDate: date
     });
@@ -49,6 +51,7 @@ class DashboardSearchMonth extends Component {
             
 <DatePicker
     className = "monthYearPicker btn btn-default"    
+    dateFormat="MMM DD YYYY"
     selected={this.state.startDate}
     selectsStart    startDate={this.state.startDate}
     endDate={this.state.endDate}
@@ -64,6 +67,7 @@ class DashboardSearchMonth extends Component {
 <DatePicker
     className = "monthYearPicker btn btn-default"
     selected={this.state.endDate}
+    dateFormat="MMM DD YYYY"
     selectsEnd    startDate={this.state.startDate}
     endDate={this.state.endDate}
     onChange={this.handleChangeEnd.bind(this)}  />
