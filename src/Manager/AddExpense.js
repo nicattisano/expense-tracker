@@ -42,7 +42,7 @@ const AddExpense = React.createClass({
                     <FormControl 
                         value={ this.state.newDate } 
                         onChange={ this.updateDate }
-                        type="text" 
+                        type="date" 
                         className="addDate" 
                         placeholder="DD-MM-YYYY" 
                         id="addDate"
