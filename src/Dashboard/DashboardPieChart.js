@@ -62,9 +62,9 @@ class DashboardPieChart extends React.Component {
     
     
 categorize(expenses) {
-
+    
 //    console.log(expenses);
-    var cats=['food', 'entertainment', 'auto', 'savings', 'condo', 'wedding', 'gifts', 'misc'];
+    var cats=['food', 'entertainment', 'auto', 'shopping', 'savings', 'condo', 'wedding', 'travel', 'gifts', 'misc'];
     
     var chartData = [['Category', 'Amount']]
     

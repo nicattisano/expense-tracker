@@ -247,7 +247,25 @@ a.aLink:hover, a.aLink:active {
     border-color: #9e283c !important;
 }
 
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    float: left;
+    margin-right: 10px;
+    position: relative;
+    top: 5px;
+}
 
+.dotfood{background: #ff6b42;}
+.dotentertainment{background: #7d4bff;}
+.dotshopping{background: #f23d5c;}
+.dotsavings{background: #00affe;}
+.dotcondo{background: #d500fa;}
+.dotwedding{background: #287af8;}
+.dottravel{background: #4bb670;}
+.dotgifts{background: #ff6b42;}
+.dotmisc{background: #7d4bff;}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
