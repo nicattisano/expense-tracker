@@ -105,9 +105,16 @@ const AddExpense = React.createClass({
                         value={this.state.newCategory}
                         onChange={this.updateCategory}
                     >
-                        <option value="food">Food</option>
-                        <option value="entertainment">Entertainment</option>
-                        <option value="auto">Auto</option>
+                    <option value="food">Food</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="auto">Auto</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="savings">Savings</option>
+                    <option value="condo">Condo</option>
+                    <option value="wedding">Wedding</option>
+                    <option value="travel">Travel</option>
+                    <option value="gifts">Gifts</option>
+                    <option value="misc">Miscellaneous</option>
                     </FormControl>
                 </FormGroup>
         

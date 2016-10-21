@@ -59,7 +59,7 @@ class ManageTable extends Component {
 { Object.keys(this.props.expenses).map((id) => {
             var expense = this.props.expenses[id];
                return <tr key={ id }>
-                    <td>
+                    <td><div className={'dot dot' + expense.category}></div>
                     <FormControl 
                         type="text" 
                         className="datepicker noStyle" 
@@ -97,9 +97,13 @@ class ManageTable extends Component {
                     >
                     <option value="food">Food</option>
                     <option value="entertainment">Entertainment</option>
-                    <option value="shopping">Parking</option>
                     <option value="auto">Auto</option>
+                    <option value="shopping">Shopping</option>
                     <option value="savings">Savings</option>
+                    <option value="condo">Condo</option>
+                    <option value="wedding">Wedding</option>
+                    <option value="travel">Travel</option>
+                    <option value="gifts">Gifts</option>
                     <option value="misc">Miscellaneous</option>
                     </FormControl>
 
