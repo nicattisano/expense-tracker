@@ -9,8 +9,10 @@ import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router'
 //import link from 'react-router';
 //import hashHistory from 'react-router';
 
-
+import { MixpanelProvider } from 'react-mixpanel';
+    
 ReactDOM.render((
+
   <Router history={browserHistory}>
     <Route path="/" component={App}>
         <IndexRoute component={Dashboard} />
@@ -19,8 +21,3 @@ ReactDOM.render((
     </Route>
   </Router>
 ), document.getElementById('root'))
-
-//ReactDOM.render(
-//  <App />,
-//  document.getElementById('root')
-//);

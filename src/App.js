@@ -30,8 +30,15 @@ messagingSenderId: "826824591907"
 firebase.initializeApp(config);
 
 
+import mixpanel from 'mixpanel-browser';
+
+mixpanel.init('04d63e33f661b4245dc8b8e2945c30b7');
+mixpanel.track('Initialized Application', {
+    awesome: 'yes'
+})
+
+
 class Manager extends Component {
-    
     constructor(props) {
         super(props);
          this.state = {

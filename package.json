@@ -8,6 +8,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "firebase": "^3.4.1",
+    "mixpanel-browser": "^2.9.16",
     "moment": "^2.15.1",
     "react": "^15.3.2",
     "react-bootstrap": "^0.30.5",
@@ -15,6 +16,7 @@
     "react-dom": "^15.3.2",
     "react-fontawesome": "^1.2.0",
     "react-google-charts": "^1.2.1",
+    "react-mixpanel": "0.0.7",
     "react-router": "^2.8.1",
     "reactfire": "^1.0.0"
   },

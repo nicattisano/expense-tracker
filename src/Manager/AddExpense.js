@@ -6,7 +6,8 @@ import FontAwesome from 'react-fontawesome';
 import firebase from 'firebase';
 import { Link } from 'react-router'
 //import link from 'react-router';
-
+import mixpanel from 'mixpanel-browser';
+    
 const AddExpense = React.createClass({
   getInitialState() {
     return { 
@@ -180,6 +181,14 @@ const AddExpense = React.createClass({
     this.firebaseRef.push(newExpense);
     this.setState({newDate: '', newStore: '', newPrice: '', newDescription:''});
       this.close();
+      this.logAdd();
+      
+  },
+    
+  logAdd() {
+    mixpanel.track("Added Expense", {
+        productName: 'Test'
+    })
   }
     
 });
