@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import { Col, ControlLabel, FormControl } from 'react-bootstrap';
-import { Link } from 'react-router'
-//import link from 'react-router';
+
 var DatePicker = require('react-datepicker');
 var moment = require('moment');
 require('react-datepicker/dist/react-datepicker.css');
@@ -50,7 +49,7 @@ var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
 
             
 <DatePicker
-    className = "monthYearPicker btn btn-default"    
+    className="monthYearPicker btn btn-default"    
     dateFormat="MMM DD YYYY"
     selected={this.state.startDate}
     selectsStart    startDate={this.state.startDate}
@@ -65,7 +64,7 @@ var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
         
         
 <DatePicker
-    className = "monthYearPicker btn btn-default"
+    className="monthYearPicker btn btn-default"
     selected={this.state.endDate}
     dateFormat="MMM DD YYYY"
     selectsEnd    startDate={this.state.startDate}

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import { Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router'
 
 class ManageHeading extends Component {
   constructor(props) {

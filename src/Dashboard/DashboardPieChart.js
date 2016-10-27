@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import { Col, ControlLabel, FormControl } from 'react-bootstrap';
-import { Link } from 'react-router'
-//import link from 'react-router';
+import { Col } from 'react-bootstrap';
+
 import {Chart} from 'react-google-charts';
 import firebase from 'firebase';
-
-
 
 
 class DashboardPieChart extends React.Component {
@@ -88,7 +85,6 @@ categorize(expenses) {
 }
     
  componentDidMount() {
-     var component = this;
      
         this.firebaseRef = firebase.database().ref('expenses');
         this.firebaseRef.on('child_added', (dataSnapshot) => {

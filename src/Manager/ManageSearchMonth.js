@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import { Col, ControlLabel, FormControl } from 'react-bootstrap';
-import { Link } from 'react-router'
-//import link from 'react-router';
 
 class ManageSearchMonth extends Component {
   render() {

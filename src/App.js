@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Grid, Row, Col, Container, Button, Form, FormGroup, FormControl, ControlLabel, Table, Modal, OverlayTrigger } from 'react-bootstrap';
-import FontAwesome from 'react-fontawesome';
+import { Row } from 'react-bootstrap';
 import firebase from 'firebase';
-import { Link } from 'react-router'
-import link from 'react-router';
 
 import Navigation from './Navigation';
 import ManageHeading from './Manager/ManageHeading';
