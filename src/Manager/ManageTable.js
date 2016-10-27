@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import { Row, Col, Button, Form, FormGroup, FormControl, ControlLabel, Table, Modal, OverlayTrigger } from 'react-bootstrap';
-import FontAwesome from 'react-fontawesome';
+import { Row, Col, Button, FormControl, Table } from 'react-bootstrap';
 import firebase from 'firebase';
-import { Link } from 'react-router'
-//import link from 'react-router';
+
 
 class ManageTable extends Component {
     
@@ -15,7 +13,6 @@ class ManageTable extends Component {
   }
     
  componentDidMount() {
-     var component = this;
      
         this.firebaseRef = firebase.database().ref('expenses');
         this.firebaseRef.on('child_added', (dataSnapshot) => {
