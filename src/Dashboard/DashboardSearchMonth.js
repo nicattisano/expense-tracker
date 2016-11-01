@@ -20,11 +20,7 @@ class DashboardSearchMonth extends Component {
     }
   }
 
-  handleChangeStart(date) {
-      
-var date = new Date();
-var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
-      
+  handleChangeStart(date) { 
     this.setState({
       startDate: date
     }); 
