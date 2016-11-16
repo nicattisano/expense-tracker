@@ -14,11 +14,14 @@ module.exports = {
            presets: ['react', 'es2015']
          }
        },
-       {
-         test: /.scss$/,
-         loaders: ["style", "css", "sass"],
-         exclude: /node_modules/
-       }
+      {
+        test: /\.css$/,
+        loader: 'style!css'
+      },
+        {
+            test: /\.(eot|svg|ttf|woff|woff2)$/,
+            loader: 'file?name=public/fonts/[name].[ext]'
+        }
       ]
     }
 };

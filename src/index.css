@@ -159,7 +159,7 @@ input#addDate {
     border-bottom-left-radius: 0;
 }
 .main {
-    background: url(main.jpg);
+/*    background: url(main.jpg);*/
     background-size: cover;
     position: absolute;
     top: 0;
