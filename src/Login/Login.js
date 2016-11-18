@@ -19,7 +19,7 @@ class Login extends Component {
         <div className="container">
             <Row>
                 <Col md={4} mdOffset={4}>
-                    <LoginForm />
+                    <LoginForm onLogin={this.props.onLogin}/>
                 </Col>
             </Row>
         </div>

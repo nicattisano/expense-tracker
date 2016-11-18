@@ -102,15 +102,30 @@ class App extends Component {
     
  constructor(props) {
       super(props);
+         this.state = {
+            user: {
+                
+            }
+      }
   }
     
+    onLogin(user) {
+        // this will set this.state.user
+        console.log(user);
+        this.setState({user: user});
+    }
+    
   render() {
+      var propsToPass = {
+          user: this.state.user,
+          onLogin: this.onLogin.bind(this)
+      }
     return (
         <div>
             <Navigation />
             <div className="dashboard">
                 <div className="container">
-                    {this.props.children}               
+                    {React.cloneElement(this.props.children, propsToPass)}
                 </div>
             </div>
         </div>
