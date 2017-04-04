@@ -17,12 +17,22 @@ import DashboardLatestExpenses from './Dashboard/DashboardLatestExpenses';
 
 //import logo from './logo.svg';
 
+// var config = {
+// apiKey: "AIzaSyC6opwtv3_uAp-P0GMI-OpoLSxuyPUdRhc",
+// authDomain: "expense-tracker-data.firebaseapp.com",
+// databaseURL: "https://expense-tracker-data.firebaseio.com",
+// storageBucket: "",
+// messagingSenderId: "826824591907"
+// };
+// firebase.initializeApp(config);
+
 var config = {
-apiKey: "AIzaSyC6opwtv3_uAp-P0GMI-OpoLSxuyPUdRhc",
-authDomain: "expense-tracker-data.firebaseapp.com",
-databaseURL: "https://expense-tracker-data.firebaseio.com",
-storageBucket: "",
-messagingSenderId: "826824591907"
+  apiKey: "AIzaSyC6opwtv3_uAp-P0GMI-OpoLSxuyPUdRhc",
+  authDomain: "expense-tracker-data.firebaseapp.com",
+  databaseURL: "https://expense-tracker-data.firebaseio.com",
+  projectId: "expense-tracker-data",
+  storageBucket: "expense-tracker-data.appspot.com",
+  messagingSenderId: "826824591907"
 };
 firebase.initializeApp(config);
 
@@ -65,7 +75,7 @@ class Manager extends Component {
 
 
 class Dashboard extends Component {
-    
+
     constructor(props) {
         super(props);
          this.state = {
@@ -80,10 +90,10 @@ class Dashboard extends Component {
             }
       }
     }
-    
+
     render() {
         return(
-            
+
         <div className="dashboard">
             <DashboardHeading />
             <Row>
@@ -91,30 +101,30 @@ class Dashboard extends Component {
             <DashboardPieChart />
                <DashboardLatestExpenses expenses={this.state.expenses}/>
             </Row>
-        </div>   
-            
+        </div>
+
         )
     }
 }
 
 
 class App extends Component {
-    
+
  constructor(props) {
       super(props);
          this.state = {
             user: {
-                
+
             }
       }
   }
-    
+
     onLogin(user) {
         // this will set this.state.user
         console.log(user);
         this.setState({user: user});
     }
-    
+
   render() {
       var propsToPass = {
           user: this.state.user,
@@ -135,5 +145,3 @@ class App extends Component {
 
 export default App;
 export { Manager, Dashboard };
-
-
