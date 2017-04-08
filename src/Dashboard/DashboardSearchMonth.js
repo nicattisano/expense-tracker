@@ -5,11 +5,11 @@ import { Col, ControlLabel, FormControl } from 'react-bootstrap';
 
 var DatePicker = require('react-datepicker');
 var moment = require('moment');
+
 require('react-datepicker/dist/react-datepicker.css');
 
 class DashboardSearchMonth extends Component {
- 
-    
+
     constructor(props) {
         super(props);
          this.state = {
@@ -20,45 +20,49 @@ class DashboardSearchMonth extends Component {
     }
   }
 
-  handleChangeStart(date) { 
+  handleChangeStart(date) {
     this.setState({
       startDate: date
-    }); 
-  }  
-    
+    });
+  }
+
     handleChangeEnd(date) {
     this.setState({
       endDate: date
     });
   }
- 
-    
+
+  handleDateRange() {
+    console.log('submitting');
+  }
+
+
     render() {
         return(
 
                 <Col md={12} className="m-b-20">
-                    <ControlLabel 
+                    <ControlLabel
                         id="searchChartsStart">
                         Start Date :
                     </ControlLabel>
 
 
-            
+
 <DatePicker
-    className="monthYearPicker btn btn-default"    
+    className="monthYearPicker btn btn-default"
     dateFormat="MMM DD YYYY"
     selected={this.state.startDate}
     selectsStart    startDate={this.state.startDate}
     endDate={this.state.endDate}
     onChange={this.handleChangeStart.bind(this)}  />
-        
-        
-                    <ControlLabel 
+
+
+                    <ControlLabel
                         id="searchChartsEnd">
                         End Date :
                     </ControlLabel>
-        
-        
+
+
 <DatePicker
     className="monthYearPicker btn btn-default"
     selected={this.state.endDate}
@@ -66,16 +70,15 @@ class DashboardSearchMonth extends Component {
     selectsEnd    startDate={this.state.startDate}
     endDate={this.state.endDate}
     onChange={this.handleChangeEnd.bind(this)}  />
-    
-    
-    <FormControl 
-        type="submit"
+
+
+    <button
         className="btn btn-default btnSearchFilter"
-        value="Go"
-    />
-            
+        onClick={this.handleDateRange}>Go
+    </button>
+
         </Col>
-            
+
         )
     }
 }

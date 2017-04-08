@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import { Col, Table } from 'react-bootstrap';
 import firebase from 'firebase';
+var moment = require('moment');
 
 class DashboardLatestExpenses extends Component {
 
@@ -17,10 +18,12 @@ class DashboardLatestExpenses extends Component {
     //                description: 'blahhh',
     //                category: 'Entertainment'
     //            }
-            }
+        },
+        startDate: moment(),
+        endDate: moment()
       }
     }
-    
+
     render() {
         return(
 
@@ -35,7 +38,7 @@ class DashboardLatestExpenses extends Component {
                         </tr>
                     </thead>
                     <tbody>
-            
+
             { Object.keys(this.props.expenses).map((id) => {
             var expense = this.props.expenses[id];
                return <tr key={ id }>
@@ -48,29 +51,29 @@ class DashboardLatestExpenses extends Component {
 
                 </Table>
             </Col>
-            
-            
+
+
         )
     }
-    
-    
+
+
  componentDidMount() {
 //     var component = this;
-     
+
         this.firebaseRef = firebase.database().ref('expenses');
         this.firebaseRef.on('child_added', (dataSnapshot) => {
 //            console.log(dataSnapshot.key, dataSnapshot.val());
             var expenses = this.props.expenses;
-       
+
             var id = dataSnapshot.key;
             expenses[id] = dataSnapshot.val();
-       
+
             this.setState({ expenses:expenses });
         });
-    
+
  }
-    
-    
+
+
 }
 
 export default DashboardLatestExpenses;
