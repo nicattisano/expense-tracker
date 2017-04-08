@@ -102,7 +102,7 @@ select.noStyle{
 
 .ui-datepicker-close, .ui-datepicker-current {
     background: #2a2a36 !important;
-    color: #fefeff !important; 
+    color: #fefeff !important;
 }
 
 label#searchCharts {
@@ -262,6 +262,7 @@ a.aLink:hover, a.aLink:active {
 .dotshopping{background: #f23d5c;}
 .dotsavings{background: #00affe;}
 .dotcondo{background: #d500fa;}
+.dotauto{background: #fdcb4e;}
 .dotwedding{background: #287af8;}
 .dottravel{background: #4bb670;}
 .dotgifts{background: #ff6b42;}
