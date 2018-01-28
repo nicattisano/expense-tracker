@@ -5,10 +5,10 @@ import { Col, Button, Form, FormGroup, FormControl, ControlLabel, Modal } from '
 import FontAwesome from 'react-fontawesome';
 import firebase from 'firebase';
 import mixpanel from 'mixpanel-browser';
-    
+
 const AddExpense = React.createClass({
   getInitialState() {
-    return { 
+    return {
         newCategory: 'food',
         showModal: false };
   },
@@ -17,7 +17,6 @@ const AddExpense = React.createClass({
     return (
       <div>
 
-        <Col md={4}>
         <Button
           bsStyle="default"
           className="btnAdd"
@@ -25,7 +24,6 @@ const AddExpense = React.createClass({
         >
         <FontAwesome name="plus"/> Add Expense
         </Button>
-        </Col>
 
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
@@ -34,67 +32,67 @@ const AddExpense = React.createClass({
           <Modal.Body>
             <Form>
                 <FormGroup>
-                    <ControlLabel 
+                    <ControlLabel
                         className="input-group-addon">
                         Date
                     </ControlLabel>
-                    <FormControl 
-                        value={ this.state.newDate } 
+                    <FormControl
+                        value={ this.state.newDate }
                         onChange={ this.updateDate }
-                        type="date" 
-                        className="addDate" 
-                        placeholder="DD-MM-YYYY" 
+                        type="date"
+                        className="addDate"
+                        placeholder="DD-MM-YYYY"
                         id="addDate"
                     />
                 </FormGroup>
-        
-        
+
+
                 <FormGroup>
-                    <ControlLabel 
+                    <ControlLabel
                         className="input-group-addon">
                         Store
                     </ControlLabel>
-                    <FormControl 
-                        value={ this.state.newStore } 
+                    <FormControl
+                        value={ this.state.newStore }
                         onChange={ this.updateStore }
-                        type="text" 
-                        className="form-control" 
-                        placeholder="Store" 
+                        type="text"
+                        className="form-control"
+                        placeholder="Store"
                         aria-describedby="store">
                     </FormControl>
                 </FormGroup>
-        
+
                 <FormGroup>
-                    <ControlLabel 
+                    <ControlLabel
                         className="input-group-addon">
                         Price
                     </ControlLabel>
                     <FormControl
-                        value={this.state.newPrice } 
+                        value={this.state.newPrice }
                         onChange={ this.updatePrice }
                         type="text"
-                        placeholder="Price" 
+                        placeholder="Price"
                         aria-label="price"
                     />
                 </FormGroup>
-        
+
                 <FormGroup>
-                    <ControlLabel 
+                    <ControlLabel
                         className="input-group-addon">
                         Description
                     </ControlLabel>
                     <FormControl
-                        value={ this.state.newDescription } 
+                        value={ this.state.newDescription }
                         onChange={ this.updateDescription }
                         type="text"
-                        placeholder="Description" 
+                        placeholder="Description"
                         aria-label="description"
                     />
                 </FormGroup>
-        
-        
+
+
                 <FormGroup>
-                    <ControlLabel 
+                    <ControlLabel
                         className="input-group-addon">
                         Category
                     </ControlLabel>
@@ -115,9 +113,9 @@ const AddExpense = React.createClass({
                     <option value="misc">Miscellaneous</option>
                     </FormControl>
                 </FormGroup>
-        
-        
-        
+
+
+
             </Form>
           </Modal.Body>
           <Modal.Footer>
@@ -128,7 +126,7 @@ const AddExpense = React.createClass({
       </div>
     );
   },
-    
+
   close() {
     this.setState({ showModal: false });
   },
@@ -139,62 +137,63 @@ const AddExpense = React.createClass({
 
   updateDate: function(event) {
     this.setState({ newDate: event.target.value });
-  },  
+  },
   updateStore: function(event) {
     this.setState({ newStore: event.target.value });
-  },    
+  },
   updatePrice: function(event) {
-    this.setState({ newPrice: event.target.value });
-  },  
+    var test = event.target.value.replace(/[^\d.-]/g, '');;
+    this.setState({ newPrice: test });
+  },
   updateDescription: function(event) {
     this.setState({ newDescription: event.target.value });
-  },  
+  },
   updateCategory: function(event) {
     this.setState({ newCategory: event.target.value });
   },
-    
-    
-    
-    
+
+
+
+
  componentDidMount() {
-     
+
         this.firebaseRef = firebase.database().ref('expenses');
         this.firebaseRef.on('child_added', (dataSnapshot) => {
             console.log(dataSnapshot.key, dataSnapshot.val());
             var expenses = this.props.expenses;
-       
+
             var id = dataSnapshot.key;
             expenses[id] = dataSnapshot.val();
-       
+
             this.setState({ expenses:expenses });
         });
  },
-    
-    
+
+
   addExpense() {
-    var newExpense = { 
+    var newExpense = {
         date: this.state.newDate,
         store: this.state.newStore,
         price: this.state.newPrice,
         description: this.state.newDescription,
         category: this.state.newCategory
     }
-    
+
     console.log(newExpense);
-    
+
     this.firebaseRef.push(newExpense);
     this.setState({newDate: '', newStore: '', newPrice: '', newDescription:''});
       this.close();
       this.logAdd();
-      
+
   },
-    
+
   logAdd() {
     mixpanel.track("Added Expense", {
         productName: 'Test'
     })
   }
-    
+
 });
 
 export default AddExpense;

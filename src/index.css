@@ -128,6 +128,8 @@ label#searchCharts {
     border-color: #f23d5c;
     float: right;
     transition: 0.2s all;
+    margin-top: 30px;
+    float: right;
 }
 
 .btnAdd:hover, .btnAdd:active, .btnAdd:focus {
@@ -255,6 +257,10 @@ a.aLink:hover, a.aLink:active {
     margin-right: 10px;
     position: relative;
     top: 5px;
+}
+
+.pieWrap {
+  margin-top: -30px;
 }
 
 .dotfood{background: #ff6b42;}

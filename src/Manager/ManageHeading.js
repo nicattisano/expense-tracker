@@ -13,11 +13,9 @@ class ManageHeading extends Component {
 
   render() {
     return (
-        <Row>
-            <Col md={12}>
+            <Col xs={8}>
                 <h1 className="m-b-30">{ this.state.heading }</h1>
             </Col>
-        </Row>
     );
   }
 }

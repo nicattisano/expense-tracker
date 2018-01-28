@@ -8,7 +8,7 @@ import firebase from 'firebase';
 
 
 class DashboardPieChart extends React.Component {
-    
+
   constructor(props){
     super(props);
     this.state={
@@ -22,7 +22,7 @@ class DashboardPieChart extends React.Component {
     //            }
     },
       options:{
-          title: 'October 2016 Breakdown',
+          title: '',
             pieHole: 0.4,
             backgroundColor: '#2a2a36',
             fontName: 'Montserrat',
@@ -44,48 +44,48 @@ class DashboardPieChart extends React.Component {
       ]
     };
   }
-    
+
   render() {
       return (
-          
-          <div>
+
+    <div className="pieWrap">
           <Col md={6}>
         <Chart chartType="PieChart" data={this.categorize(this.state.expenses)} options={this.state.options} graph_id="PieChart"  width={"700px"} height={"500px"}  legend_toggle={true} />
           </Col>
     </div>
-    
+
       );
   }
-    
-    
+
+
 categorize(expenses) {
-    
+
 //    console.log(expenses);
     var cats=['food', 'entertainment', 'auto', 'shopping', 'savings', 'condo', 'wedding', 'travel', 'gifts', 'misc'];
-    
+
     var chartData = [['Category', 'Amount']]
-    
+
     for (var i=0; i < cats.length; i++ ) {
         var categoryName = cats[i];
         var totalCost = 0;
-        
+
         for (var key in expenses) {
             if (expenses[key].category === categoryName) {
                 totalCost += parseInt(expenses[key].price);
             }
         }
-        
-        
+
+
 //        categories[categoryName] = totalCost;
         chartData.push([categoryName.charAt(0).toUpperCase() + categoryName.substr(1).toLowerCase(), totalCost])
     }
-    
+
 //    console.log(chartData);
     return chartData;
 }
-    
+
  componentDidMount() {
-     
+
         this.firebaseRef = firebase.database().ref('expenses');
         this.firebaseRef.on('child_added', (dataSnapshot) => {
 //            console.log(dataSnapshot.key, dataSnapshot.val());
@@ -93,15 +93,15 @@ categorize(expenses) {
 //       console.log('b4 ' + expenses);
             var id = dataSnapshot.key;
             expenses[id] = dataSnapshot.val();
-       
+
 //            console.log( 'after ' + expenses);
-            
+
             this.setState({ expenses:expenses });
         });
-    
+
  }
-    
-    
+
+
 };
 
 
