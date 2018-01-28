@@ -6,40 +6,40 @@ import firebase from 'firebase';
 
 
 class ManageTable extends Component {
-    
+
   deleteExpense(id){
       this.firebaseRef.child(id).remove();
       console.log('deleteeee');
   }
-    
+
  componentDidMount() {
-     
+
         this.firebaseRef = firebase.database().ref('expenses');
         this.firebaseRef.on('child_added', (dataSnapshot) => {
             console.log(dataSnapshot.key, dataSnapshot.val());
             var expenses = this.props.expenses;
-       
+
             var id = dataSnapshot.key;
             expenses[id] = dataSnapshot.val();
-       
+
             this.setState({ expenses:expenses });
         });
-    
+
         this.firebaseRef.on('child_removed', (dataSnapshot) => {
             console.log(dataSnapshot.key, dataSnapshot.val());
             var expenses = this.state.expenses;
             delete expenses[dataSnapshot.key];
             this.setState({ expenses:expenses });
         })
-        
+
  }
-     
-    
+
+
   render() {
     return (
         <Row>
         <Col md={12}>
-        <h3>All Expenses for October 2016</h3>
+        {/*<h3>All Expenses for October 2016</h3>*/}
         <Table className="recentExpensesTable">
             <thead>
                 <tr>
@@ -52,37 +52,37 @@ class ManageTable extends Component {
                 </tr>
             </thead>
             <tbody>
-        
+
 { Object.keys(this.props.expenses).map((id) => {
             var expense = this.props.expenses[id];
                return <tr key={ id }>
                     <td><div className={'dot dot' + expense.category}></div>
-                    <FormControl 
-                        type="text" 
-                        className="datepicker noStyle" 
-                        id="datepicker" 
+                    <FormControl
+                        type="text"
+                        className="datepicker noStyle"
+                        id="datepicker"
                         value={ expense.date }
                     />
                     </td>
-    
+
                     <td>
-                    <FormControl 
-                        type="text" 
-                        className="noStyle" 
+                    <FormControl
+                        type="text"
+                        className="noStyle"
                         value={ expense.store }
                     />
                     </td>
                     <td className="priceTd">
-                    <FormControl 
-                        type="text" 
-                        className="noStyle priceVal" 
+                    <FormControl
+                        type="text"
+                        className="noStyle priceVal"
                         value={ '$' + expense.price }
                     />
                     </td>
                     <td>
-                    <FormControl 
-                        type="text" 
-                        className="noStyle" 
+                    <FormControl
+                        type="text"
+                        className="noStyle"
                         value={ expense.description }
                     />
                     </td>
@@ -111,9 +111,9 @@ class ManageTable extends Component {
                         </Button>
                     </td>
                 </tr>
-            
+
 })}
-    
+
             </tbody>
         </Table>
 

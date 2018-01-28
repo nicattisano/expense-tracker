@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import { Row } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import firebase from 'firebase';
 
 import Navigation from './Navigation';
@@ -62,10 +62,13 @@ class Manager extends Component {
     }
     render() {
         return <div>
-        <ManageHeading />
+
             <Row>
-                <ManageSearchMonth />
-                <AddExpense expenses={this.state.expenses}/>
+              <ManageHeading />
+                  {/*<ManageSearchMonth />*/}
+              <Col xs={4}>
+              <AddExpense expenses={this.state.expenses}/>
+              </Col>
             </Row>
 
             <ManageTable expenses={this.state.expenses}/>
@@ -97,9 +100,9 @@ class Dashboard extends Component {
         <div className="dashboard">
             <DashboardHeading />
             <Row>
-                <DashboardSearchMonth />
+                {/*<DashboardSearchMonth />*/}
             <DashboardPieChart />
-               <DashboardLatestExpenses expenses={this.state.expenses}/>
+               <DashboardLatestExpenses expenses={this.state.expenses} startDate={this.state.startDate} endDate={this.state.endDate}/>
             </Row>
         </div>
 

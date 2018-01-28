@@ -21,19 +21,26 @@ class DashboardSearchMonth extends Component {
   }
 
   handleChangeStart(date) {
+    console.log(date._d);
     this.setState({
       startDate: date
     });
   }
 
     handleChangeEnd(date) {
+    console.log(date._d);
     this.setState({
       endDate: date
     });
   }
 
   handleDateRange() {
-    console.log('submitting');
+    {/*
+    console.log('start date: ');
+    console.log(this.state.startDate._d);
+    console.log('end date: ');
+    console.log(this.state.endDate._d);
+    */}
   }
 
 
@@ -74,7 +81,7 @@ class DashboardSearchMonth extends Component {
 
     <button
         className="btn btn-default btnSearchFilter"
-        onClick={this.handleDateRange}>Go
+        onClick={this.handleDateRange.bind(this)}>Go
     </button>
 
         </Col>
